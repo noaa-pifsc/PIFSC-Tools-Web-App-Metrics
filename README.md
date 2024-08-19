@@ -6,7 +6,7 @@ The Web Application Metrics (WAM) project was developed to provide an automated 
 ## Resources
 -   WAM Version Control Information:
     -   URL: git@picgitlab.nmfs.local:centralized-data-tools/web-app-metrics.git
-    -   Version: 1.3 (Git tag: web_app_metrics_v1.3)
+    -   Version: 1.4 (Git tag: web_app_metrics_v1.4)
 
 ## Scenarios
 -   There are three different scenarios implemented by the docker project:

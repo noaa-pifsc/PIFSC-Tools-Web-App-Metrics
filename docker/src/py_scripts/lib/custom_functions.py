@@ -130,17 +130,20 @@ def process_browser_network_logs (logs, print_log_messages):
 # The functions behavior is based on the following arguments:
 # stale_element (when applicable) is the WebElement that needs to be stale before the page processing continues
 # clickable_element is the id of the element that needs to be clickable before the page processing continues
+# by_method is the method used from the By class (e.g. By.XPATH, By.ID)
 # start_timer is the timestamp before the action was initiated
 # driver is the selenium driver used to get the logs, page name, etc.
 # print_log_messages is a boolean to indicate if the log messages should also be printed to stdout
 # fp is the file pointer to the .csv output file
 # screenshot_suffix has the suffix for the screenshot file name (if any) to differentiate when the same page is filtered, reloaded, submitted, etc.
 # web_action is a text string that describes the action that was taken in the given web request (e.g. page load, form submission)
-def wait_for_response (stale_element, clickable_element_id, start_timer, driver, print_log_messages, fp, screenshot_suffix, web_action):
+def wait_for_response (stale_element, by_method, clickable_element_id, start_timer, driver, print_log_messages, fp, screenshot_suffix, web_action):
 
-    log_value ("running wait_for_response ("+str(stale_element)+", "+clickable_element_id+", "+str(start_timer)+", driver, "+str(print_log_messages)+", fp, "+str(screenshot_suffix)+")", print_log_messages)
+    log_value ("running wait_for_response ("+str(stale_element)+", "+str(by_method)+", "+clickable_element_id+", "+str(start_timer)+", driver, "+str(print_log_messages)+", fp, "+str(screenshot_suffix)+")", print_log_messages)
 
     try:
+        
+#        log_object(by_method, True)
         
         if stale_element is not None:
             elem = WebDriverWait(driver, 30).until(
@@ -149,11 +152,17 @@ def wait_for_response (stale_element, clickable_element_id, start_timer, driver,
 
             log_value("The stale element was found, wait for the clickable element", print_log_messages)
         
+        log_value ("wait for the specified element to be clickable: "+clickable_element_id, print_log_messages)
+        
+        
         # wait until the login username field is clickable:
         elem = WebDriverWait(driver, 30).until(
-        EC.element_to_be_clickable((By.ID, clickable_element_id)))
+        EC.element_to_be_clickable((by_method, clickable_element_id)))      
     finally:
         
+
+        
+        log_value ("The try section has finished executing, execute the finally section", print_log_messages)
         
         # stop the timer
         end_timer=round(time.time()*1000)
@@ -176,7 +185,7 @@ def wait_for_response (stale_element, clickable_element_id, start_timer, driver,
         screenshot_file = driver.title.replace("/", " ")+("" if screenshot_suffix is None else " "+screenshot_suffix)+'.png'
 
         # save the screenshot from the web request/page load
-        driver.save_screenshot('/app/data/'+screenshot_file)
+        driver.save_screenshot('/app/data/screenshots/'+screenshot_file)
 
         fp.write('"'+app_config.app_name+'","'+project_scenario_config.container_location+'","'+project_scenario_config.app_location+'","'+time.strftime('%m/%d/%Y %I:%M:%S %p', time.localtime(start_timer/1000))+'","'+driver.title+'","'+web_action+'","'+str(total_files)+'","'+str(total_file_size)+'","'+str(round(total_time_ms / 1000, 3))+'","'+screenshot_file+'"'+"\n")
 
