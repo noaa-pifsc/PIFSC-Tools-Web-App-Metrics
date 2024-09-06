@@ -33,7 +33,7 @@ The Web Application Metrics (WAM) project was developed to provide an automated 
         -   There is a block comment defined in app.py that indicates where the custom code should be defined for a given web app
 -   ### Forked Repository Implementation
     -   \*Note: this repository can be forked for a specific database instance/schema to make it easier to build and deploy the container to capture metrics for a given database instance/schema.
-        -   [WAM - IBBS](https://github.com/noaa-pifsc/PIFSC-Tools-IBBS-Web-App-Metrics) is provided as an example of how to implement the forked database-specific repository
+        -   [WAM - IBBS](https://github.com/noaa-pifsc/PIFSC-Tools-Web-App-Metrics-IBBS) is provided as an example of how to implement the forked database-specific repository
     -   Update the [app_config.py](./docker/src/py_scripts/lib/app_config.py) file to specify the configuration values for the given web application, comments are defined in the configuration file to describe the configuration variables that should be defined.
     -   Update the [app.py](./docker/src/py_scripts/app.py) to define the web actions to execute for the given web app, to capture the elapsed time for each web action, and log the standard metrics in the defined .csv file.
         -   There is a block comment defined in app.py that indicates where the custom code should be defined for a given web app
@@ -78,7 +78,7 @@ The Web Application Metrics (WAM) project was developed to provide an automated 
     -   Screenshot file name - the name of the screenshot file saved in the data volume for the given web action
 
 ## Implemented Web Actions
--   \*Note: This depends on the web app that the actions are being executed on, see [WAM - IBBS](https://github.com/noaa-pifsc/PIFSC-Tools-IBBS-Web-App-Metrics) as an example of the web actions that are implemented in the IBBS app
+-   \*Note: This depends on the web app that the actions are being executed on, see [WAM - IBBS](https://github.com/noaa-pifsc/PIFSC-Tools-Web-App-Metrics-IBBS) as an example of the web actions that are implemented in the IBBS app
 
 ## License
 See the [LICENSE.md](./LICENSE.md) for details
