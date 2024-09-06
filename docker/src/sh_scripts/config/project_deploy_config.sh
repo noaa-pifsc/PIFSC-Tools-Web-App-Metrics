@@ -4,4 +4,4 @@
 project_path="web-app-metrics"
 
 # project git URL value
-git_url="git@picgitlab.nmfs.local:centralized-data-tools/web-app-metrics.git"
+git_url="git@github.com:noaa-pifsc/PIFSC-Tools-Web-App-Metrics.git"

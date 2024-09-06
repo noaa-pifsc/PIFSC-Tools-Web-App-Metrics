@@ -5,7 +5,7 @@ The Web Application Metrics (WAM) project was developed to provide an automated 
 
 ## Resources
 -   WAM Version Control Information:
-    -   URL: git@picgitlab.nmfs.local:centralized-data-tools/web-app-metrics.git
+    -   URL: git@github.com:noaa-pifsc/PIFSC-Tools-Web-App-Metrics.git
     -   Version: 1.4 (Git tag: web_app_metrics_v1.4)
 
 ## Scenarios
@@ -33,7 +33,7 @@ The Web Application Metrics (WAM) project was developed to provide an automated 
         -   There is a block comment defined in app.py that indicates where the custom code should be defined for a given web app
 -   ### Forked Repository Implementation
     -   \*Note: this repository can be forked for a specific database instance/schema to make it easier to build and deploy the container to capture metrics for a given database instance/schema.
-        -   [WAM - IBBS](https://picgitlab.nmfs.local/web-app-metrics/ibbs-web-app-metrics) is provided as an example of how to implement the forked database-specific repository
+        -   [WAM - IBBS](https://github.com/noaa-pifsc/PIFSC-Tools-IBBS-Web-App-Metrics) is provided as an example of how to implement the forked database-specific repository
     -   Update the [app_config.py](./docker/src/py_scripts/lib/app_config.py) file to specify the configuration values for the given web application, comments are defined in the configuration file to describe the configuration variables that should be defined.
     -   Update the [app.py](./docker/src/py_scripts/app.py) to define the web actions to execute for the given web app, to capture the elapsed time for each web action, and log the standard metrics in the defined .csv file.
         -   There is a block comment defined in app.py that indicates where the custom code should be defined for a given web app
@@ -78,4 +78,10 @@ The Web Application Metrics (WAM) project was developed to provide an automated 
     -   Screenshot file name - the name of the screenshot file saved in the data volume for the given web action
 
 ## Implemented Web Actions
--   \*Note: This depends on the web app that the actions are being executed on, see [WAM - IBBS](https://picgitlab.nmfs.local/web-app-metrics/ibbs-web-app-metrics) as an example of the web actions that are implemented in the IBBS app
+-   \*Note: This depends on the web app that the actions are being executed on, see [WAM - IBBS](https://github.com/noaa-pifsc/PIFSC-Tools-IBBS-Web-App-Metrics) as an example of the web actions that are implemented in the IBBS app
+
+## License
+See the [LICENSE.md](./LICENSE.md) for details
+
+## Disclaimer
+This repository is a scientific product and is not official communication of the National Oceanic and Atmospheric Administration, or the United States Department of Commerce. All NOAA GitHub project code is provided on an ‘as is’ basis and the user assumes responsibility for its use. Any claims against the Department of Commerce or Department of Commerce bureaus stemming from the use of this GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.
