@@ -1,5 +1,10 @@
 # Web Application Metrics
 
+## Notice
+- This repository has been archived and is no longer maintained.
+- The code is provided for historical reference and may contain unpatched or unknown vulnerabilities.
+- It should not be used in production systems.
+
 ## Overview
 The Web Application Metrics (WAM) project was developed to provide an automated method to capture performance metrics from the user perspective for a suite of web actions on a given web app.  The web actions can be customized for any web application and can be executed in a variety of scenarios for flexibility.  The WAM project utilizes a docker container to execute the actions with [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/).
 
